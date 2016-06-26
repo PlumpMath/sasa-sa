@@ -1,2 +1,1 @@
-# sasa-sa
-2016 SA 프로젝트
+﻿2016 Steam Activity project @ Sejong Academy of Science and Arts
