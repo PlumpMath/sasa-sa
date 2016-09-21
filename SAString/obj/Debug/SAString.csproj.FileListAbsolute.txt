@@ -32,3 +32,34 @@ C:\Users\501_11\Documents\visual studio 2015\Projects\WpfApplication1\SAString\o
 C:\Users\501_11\Documents\visual studio 2015\Projects\WpfApplication1\SAString\obj\Debug\SAString.g.resources
 C:\Users\501_11\Documents\visual studio 2015\Projects\WpfApplication1\SAString\obj\Debug\SAString.Properties.Resources.resources
 C:\Users\501_11\Documents\visual studio 2015\Projects\WpfApplication1\SAString\obj\Debug\SAString.csproj.GenerateResource.Cache
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\SAString.exe.config
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString.exe
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString.pdb
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\dll\x86\OpenCvSharpExtern.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\dll\x86\msvcp120.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\dll\x86\msvcr120.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\dll\x86\opencv_world310.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\dll\x86\opencv_ffmpeg310.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\dll\x64\OpenCvSharpExtern.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\dll\x64\msvcp120.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\dll\x64\msvcr120.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\dll\x64\opencv_world310.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\dll\x64\opencv_ffmpeg310_64.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\SAString.exe
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\SAString.pdb
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\OpenCvSharp.Blob.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\OpenCvSharp.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\OpenCvSharp.Extensions.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\OpenCvSharp.UserInterface.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\OpenCvSharp.xml
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\OpenCvSharp.Blob.xml
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\OpenCvSharp.Extensions.xml
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString.csprojResolveAssemblyReference.cache
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\MainWindow.g.cs
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\App.g.cs
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString_MarkupCompile.cache
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString_MarkupCompile.lref
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\MainWindow.baml
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString.g.resources
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString.Properties.Resources.resources
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString.csproj.GenerateResource.Cache

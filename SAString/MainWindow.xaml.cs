@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using OpenCvSharp;
+using SAString.Processing;
 
 namespace SAString
 {
@@ -20,8 +21,9 @@ namespace SAString
         int hough_n=150;
         double clean_a=15, clean_b=0.15, thickness=1.0d;
         string fileLoc;
-        Mat src, cny, result, res2, seg, pts;
-        BitmapSource oriSrc, cannySrc, dstSrc, cleanSrc, segSrc, ptSrc;
+        Mat src, cny, result, res2, seg, pts, zadd;
+        BitmapSource oriSrc, cannySrc, dstSrc, cleanSrc, segSrc, ptSrc, zaddedSrc;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace SAString
             src = new Mat(fileLoc, ImreadModes.GrayScale);
             cny = new Mat();
             Cv2.Canny(src, cny, 50, 200);
-            result = new Mat(fileLoc); res2 = new Mat(fileLoc); seg = new Mat(fileLoc); pts = new Mat(fileLoc);
+            result = new Mat(fileLoc); res2 = new Mat(fileLoc); seg = new Mat(fileLoc); pts = new Mat(fileLoc); zadd = new Mat(fileLoc);
             var lines = Cv2.HoughLines(cny, 1, System.Math.PI / 180, hough_n);
             StringBuilder sb = new StringBuilder(String.Format("Rho,Theta\r\n"));
             List<HesseForm> li = new List<HesseForm>();
@@ -57,24 +59,46 @@ namespace SAString
                 Cv2.Line(res2, p1, p2, rndCls?new Scalar(rnd.Next(127,255), rnd.Next(127, 255), rnd.Next(127, 255)):new Scalar(0,0,255), 3);
                 ast.Add(new RectLine(lsp));
             }
+
             var segments = SegmentFinding.FindSegments(cny, ast, thickness);
+            List<OpenCvSharp.Point> points = new List<OpenCvSharp.Point>();
+
+            for(int i=0;i<segments.Count;i++)
+                for(int j=i+1;j<segments.Count;j++)
+                    if (Tools.cross(segments[i].p1.X, segments[i].p1.Y, segments[i].p2.X, segments[i].p2.Y, segments[j].p1.X, segments[j].p1.Y, segments[j].p2.X, segments[j].p2.Y))
+                        points.Add(Tools.findIntercept(segments[i].p1.X, segments[i].p1.Y, segments[i].p2.X, segments[i].p2.Y, segments[j].p1.X, segments[j].p1.Y, segments[j].p2.X, segments[j].p2.Y));
+
+            List<ZPoint> ExtendedPoints = ZAxis.CalcZPoints(segments, points);
+
+            foreach(ZPoint z in ExtendedPoints)
+            {
+                Cv2.Circle(zadd, new OpenCvSharp.Point(z.x, z.y), 2, new Scalar(255, 0, 0), 10);
+                Cv2.PutText(zadd, z.z.ToString(), new OpenCvSharp.Point(z.x+5, z.y+5), HersheyFonts.HersheySimplex, 0.75, new Scalar(0, 0, 255), 1, LineTypes.AntiAlias, false); 
+            }
+
             foreach (RectSegment rs in segments)
                 Cv2.Line(seg, rs.p1, rs.p2, rndCls ? new Scalar(rnd.Next(127, 255), rnd.Next(127, 255), rnd.Next(127, 255)) : new Scalar(0, 0, 255), 3);
+
             foreach (RectSegment rs in segments)
             {
                 Cv2.Circle(pts, rs.p1, 2, new Scalar(255, 0, 0), 10);
                 Cv2.Circle(pts, rs.p2, 2, new Scalar(255, 0, 0), 10);
             }
+            foreach (OpenCvSharp.Point pt in points)
+                Cv2.Circle(pts, pt, 2, new Scalar(100, 100, 0), 10);
+
             cannySrc = OpenCvSharp.Extensions.BitmapSourceConverter.ToBitmapSource(cny);
             dstSrc = OpenCvSharp.Extensions.BitmapSourceConverter.ToBitmapSource(result);
             cleanSrc = OpenCvSharp.Extensions.BitmapSourceConverter.ToBitmapSource(res2);
             segSrc = OpenCvSharp.Extensions.BitmapSourceConverter.ToBitmapSource(seg);
             ptSrc = OpenCvSharp.Extensions.BitmapSourceConverter.ToBitmapSource(pts);
+            zaddedSrc = OpenCvSharp.Extensions.BitmapSourceConverter.ToBitmapSource(zadd);
             cannyImage.Source = cannySrc;
             dstImage.Source = dstSrc;
             cleanedImage.Source = cleanSrc;
             segmentizedImage.Source = segSrc;
             pointsImage.Source = ptSrc;
+            zAddedImage.Source = zaddedSrc;
         }
         #region UI Methods
         private void button_Click(object sender, RoutedEventArgs e)
@@ -110,6 +134,10 @@ namespace SAString
         private void canny_MouseUp(object sender, MouseButtonEventArgs e)
         {
             new OpenCvSharp.Window("canny image", cny);
+        }
+        private void zadded_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            new OpenCvSharp.Window("z added", zadd);
         }
         private void aValue_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
