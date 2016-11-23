@@ -28,7 +28,10 @@ namespace SAString
                 Sorted.Add(new List<HesseForm>());
                 foreach (HesseForm hf in FirstSorted[i])
                 {
-                    if (Sorted[Sorted.Count - 1].Count != 0 && hf.Rho - Sorted[Sorted.Count - 1][0].Rho > thresholdRho) Sorted.Add(new List<HesseForm>());
+                    if (Sorted[Sorted.Count - 1].Count != 0 && hf.Rho - Sorted[Sorted.Count - 1][0].Rho > thresholdRho)
+                    {
+                        Sorted.Add(new List<HesseForm>());
+                    }
                     Sorted[Sorted.Count - 1].Add(hf);
                 }
             }

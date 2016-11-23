@@ -8,6 +8,10 @@ namespace SAString
         {
             Theta = theta; Rho = rho;
         }
+        public double EuclidianDist(HesseForm OtherPoint)
+        {
+            return Math.Sqrt(this.Rho * this.Rho + OtherPoint.Rho * OtherPoint.Rho - 2 * this.Rho * OtherPoint.Rho * Math.Cos(this.Theta - OtherPoint.Theta));
+        }
         public double Theta { get; set; }
         public double Rho { get; set; }
         public double Slope { get { return -1 / Math.Tan(Theta); } }
