@@ -51,7 +51,7 @@ namespace SAString
                 StringBuilder sb = new StringBuilder(String.Format("Rho,Theta\r\n"));
                 foreach (HesseForm hf in res)
                     sb.Append(String.Format("{0},{1}\r\n", hf.Rho, hf.Theta));
-                System.IO.File.WriteAllText("sorted.csv", sb.ToString());
+                System.IO.File.WriteAllText("out/sorted.csv", sb.ToString());
             }
             return res;
         }

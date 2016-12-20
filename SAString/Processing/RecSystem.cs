@@ -37,6 +37,17 @@ namespace SAString
         }
         public Point p1 { get; set; }
         public Point p2 { get; set; }
+        public RectLine ToLine()
+        {
+            return new RectLine(p2.Y-p1.Y, p1.X-p2.X, p2.X*p1.Y-p1.X*p2.Y);
+        }
+        public RectArea ToArea()
+        {
+            RectArea ra = new RectArea();
+            ra.AddComparison(p1);
+            ra.AddComparison(p2);
+            return ra;
+        }
     }
     public class RectArea
     {
@@ -58,6 +69,11 @@ namespace SAString
         public bool InArea(double x, double y)
         {
             return InArea(new Point(x, y));
+        }
+        public bool InArea(Point p, double Error)
+        {
+            if (p1.X-Error <= p.X && p.X <= p2.X+Error && p1.Y-Error <= p.Y && p.Y <= p2.Y+Error) return true;
+            else return false;
         }
         public bool InArea(Point p)
         {

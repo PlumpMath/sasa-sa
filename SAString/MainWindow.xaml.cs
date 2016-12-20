@@ -18,7 +18,7 @@ namespace SAString
     public partial class MainWindow : System.Windows.Window
     {
         bool rndCls=false;
-        int hough_n=150;
+        int hough_n=150, cluster_thres=100;
         double clean_a=15, clean_b=0.15, thickness=1.0d;
         string fileLoc;
         Mat src, cny, result, res2, seg, pts, zadd;
@@ -48,7 +48,7 @@ namespace SAString
                 sb.Append(String.Format("{0},{1}\r\n", lsp.Rho, lsp.Theta));
                 li.Add(new HesseForm(lsp.Theta, lsp.Rho));
             }
-            if (Settings.SaveAsCSV) File.WriteAllText("pre.csv", sb.ToString());
+            if (Settings.SaveAsCSV) File.WriteAllText("out/pre.csv", sb.ToString());
             li = CleanLines.Clean(li, clean_a, clean_b);
             List<RectLine> ast = new List<RectLine>();
             foreach (HesseForm lsp in li)
@@ -60,7 +60,7 @@ namespace SAString
                 ast.Add(new RectLine(lsp));
             }
 
-            var segments = SegmentFinding.FindSegments(cny, ast, thickness);
+            var segments = SegmentFinding.FindSegments(cny, ast, thickness, cluster_thres);
             List<OpenCvSharp.Point> points = new List<OpenCvSharp.Point>();
 
             for(int i=0;i<segments.Count;i++)
@@ -73,7 +73,7 @@ namespace SAString
             foreach(ZPoint z in ExtendedPoints)
             {
                 Cv2.Circle(zadd, new OpenCvSharp.Point(z.x, z.y), 2, new Scalar(255, 0, 0), 10);
-                Cv2.PutText(zadd, z.z.ToString(), new OpenCvSharp.Point(z.x+5, z.y+5), HersheyFonts.HersheySimplex, 0.75, new Scalar(0, 0, 255), 1, LineTypes.AntiAlias, false); 
+                Cv2.PutText(zadd, z.z.ToString("G4"), new OpenCvSharp.Point(z.x+5, z.y+5), HersheyFonts.HersheySimplex, 0.75, new Scalar(0, 0, 255), 1, LineTypes.AntiAlias, false); 
             }
 
             foreach (RectSegment rs in segments)
@@ -144,6 +144,7 @@ namespace SAString
             try
             {
                 Int32.TryParse(aValue.Text, out hough_n);
+                Int32.TryParse(aValue_Copy3.Text, out cluster_thres);
                 Double.TryParse(aValue_Copy.Text, out clean_a);
                 Double.TryParse(aValue_Copy1.Text, out clean_b);
                 Double.TryParse(aValue_Copy2.Text, out thickness);

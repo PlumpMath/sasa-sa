@@ -8,18 +8,20 @@
         Title="Test Application" Height="888.662" Width="1150.635">
     <Grid>
         <Button x:Name="button" Content="파일 열기" HorizontalAlignment="Left" Margin="40,34,0,0" VerticalAlignment="Top" Width="111" Height="25" Click="button_Click"/>
-        <Button x:Name="button_Copy" Content="연산" HorizontalAlignment="Left" Margin="177,34,0,0" VerticalAlignment="Top" Width="111" Height="25" Click="button_Copy_Click"/>
-        <CheckBox x:Name="checkBox" Content="csv로 데이터 저장" HorizontalAlignment="Left" Margin="481,25,0,0" VerticalAlignment="Top" IsChecked="False" Unchecked="checkBox_Unchecked" Checked="checkBox_Checked"/>
-        <Label Content="n" HorizontalAlignment="Left" Margin="717,22,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="aValue" HorizontalAlignment="Left" Height="23" Margin="738,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="aValue_TextChanged" Text="150" />
-        <Label Content="thresholdRho" HorizontalAlignment="Left" Margin="891,22,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="aValue_Copy" HorizontalAlignment="Left" Height="23" Margin="979,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="aValue_TextChanged" Text="15"/>
-        <Label Content="thresholdTheta" HorizontalAlignment="Left" Margin="642,50,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="aValue_Copy1" HorizontalAlignment="Left" Height="23" Margin="738,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="0.15" TextChanged="aValue_TextChanged"/>
-        <Button x:Name="button_Copy1" Content="실행 폴더" HorizontalAlignment="Left" Margin="320,34,0,0" VerticalAlignment="Top" Width="111" Height="25" Click="button_Copy1_Click"/>
-        <Label Content="lineThickness" HorizontalAlignment="Left" Margin="893,51,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="aValue_Copy2" HorizontalAlignment="Left" Height="23" Margin="979,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="1" TextChanged="aValue_TextChanged"/>
-        <CheckBox x:Name="checkBox_Copy" Content="직선별 랜덤색상" HorizontalAlignment="Left" Margin="481,51,0,0" VerticalAlignment="Top" IsChecked="True" Unchecked="checkBox_Unchecked" Checked="checkBox_Checked"/>
+        <Button x:Name="button_Copy" Content="연산" HorizontalAlignment="Left" Margin="156,34,0,0" VerticalAlignment="Top" Width="111" Height="25" Click="button_Copy_Click"/>
+        <CheckBox x:Name="checkBox" Content="csv로 데이터 저장" HorizontalAlignment="Left" Margin="397,27,0,0" VerticalAlignment="Top" IsChecked="False" Unchecked="checkBox_Unchecked" Checked="checkBox_Checked"/>
+        <Label Content="n" HorizontalAlignment="Left" Margin="595,20,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="aValue" HorizontalAlignment="Left" Height="23" Margin="616,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="aValue_TextChanged" Text="150" />
+        <Label Content="thresholdRho" HorizontalAlignment="Left" Margin="740,20,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="aValue_Copy" HorizontalAlignment="Left" Height="23" Margin="828,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="aValue_TextChanged" Text="15"/>
+        <Label Content="thresholdTheta" HorizontalAlignment="Left" Margin="520,48,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="aValue_Copy1" HorizontalAlignment="Left" Height="23" Margin="616,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="0.15" TextChanged="aValue_TextChanged"/>
+        <Button x:Name="button_Copy1" Content="실행 폴더" HorizontalAlignment="Left" Margin="272,33,0,0" VerticalAlignment="Top" Width="111" Height="25" Click="button_Copy1_Click"/>
+        <Label Content="lineThickness" HorizontalAlignment="Left" Margin="742,49,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="aValue_Copy2" HorizontalAlignment="Left" Height="23" Margin="828,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="1" TextChanged="aValue_TextChanged"/>
+        <Label Content="ClusterThreshold" HorizontalAlignment="Left" Margin="975,20,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="aValue_Copy3" HorizontalAlignment="Left" Height="23" Margin="966,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="100" TextChanged="aValue_TextChanged"/>
+        <CheckBox x:Name="checkBox_Copy" Content="직선별 랜덤색상" HorizontalAlignment="Left" Margin="397,53,0,0" VerticalAlignment="Top" IsChecked="True" Unchecked="checkBox_Unchecked" Checked="checkBox_Checked"/>
         <ScrollViewer Margin="20,97,20,40">
             <Grid Margin="20,5">
                 <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0">
