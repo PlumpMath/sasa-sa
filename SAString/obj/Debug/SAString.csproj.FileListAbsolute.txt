@@ -63,3 +63,5 @@ C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\MainWindow.baml
 C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString.g.resources
 C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString.Properties.Resources.resources
 C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\obj\Debug\SAString.csproj.GenerateResource.Cache
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\RhinoCommon.dll
+C:\Users\studiodoth\Documents\GitHub\sasa-sa\SAString\bin\Debug\RhinoCommon.xml

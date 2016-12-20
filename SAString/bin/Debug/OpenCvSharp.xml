@@ -1052,7 +1052,7 @@
             If the parameter is not 0, the function assumes that the aspect ratio (fx/fy) 
             is fixed and correspondingly adjusts the jacobian matrix.</param>
         </member>
-        <member name="M:OpenCvSharp.Cv2.ProjectPoints(System.Collections.Generic.IEnumerable{OpenCvSharp.Point3d},System.Double[],System.Double[],System.Double[0:,0:],System.Double[],OpenCvSharp.Point2d[]@,System.Double[0:,0:]@,System.Double)">
+        <member name="M:OpenCvSharp.Cv2.ProjectPoints(System.Collections.Generic.IEnumerable{OpenCvSharp.Point3f},System.Double[],System.Double[],System.Double[0:,0:],System.Double[],OpenCvSharp.Point2f[]@,System.Double[0:,0:]@,System.Double)">
             <summary>
             projects points from the model coordinate space to the image coordinates. 
             Also computes derivatives of the image coordinates w.r.t the intrinsic 
@@ -1113,7 +1113,7 @@
             the rotation and translation vectors, respectively, and further optimizes them.</param>
             <param name="flags">Method for solving a PnP problem:</param>
         </member>
-        <member name="M:OpenCvSharp.Cv2.SolvePnPRansac(OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,System.Boolean,System.Int32,System.Single,System.Int32,OpenCvSharp.OutputArray,OpenCvSharp.SolvePnPFlags)">
+        <member name="M:OpenCvSharp.Cv2.SolvePnPRansac(OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,System.Boolean,System.Int32,System.Single,System.Double,OpenCvSharp.OutputArray,OpenCvSharp.SolvePnPFlags)">
             <summary>
             computes the camera pose from a few 3D points and the corresponding projections. The outliers are possible.
             </summary>
@@ -1132,7 +1132,7 @@
             <param name="iterationsCount">Number of iterations.</param>
             <param name="reprojectionError">Inlier threshold value used by the RANSAC procedure. 
             The parameter value is the maximum allowed distance between the observed and computed point projections to consider it an inlier.</param>
-            <param name="minInliersCount">Number of inliers. If the algorithm at some stage finds more inliers than minInliersCount , it finishes.</param>
+            <param name="confidence">The probability that the algorithm produces a useful result.</param>
             <param name="inliers">Output vector that contains indices of inliers in objectPoints and imagePoints .</param>
             <param name="flags">Method for solving a PnP problem</param>
         </member>
@@ -1151,7 +1151,7 @@
             to the camera coordinate system.</param>
             <param name="tvec">Output translation vector.</param>
         </member>
-        <member name="M:OpenCvSharp.Cv2.SolvePnPRansac(System.Collections.Generic.IEnumerable{OpenCvSharp.Point3f},System.Collections.Generic.IEnumerable{OpenCvSharp.Point2f},System.Double[0:,0:],System.Collections.Generic.IEnumerable{System.Double},System.Double[]@,System.Double[]@,System.Int32[]@,System.Boolean,System.Int32,System.Single,System.Int32,OpenCvSharp.SolvePnPFlags)">
+        <member name="M:OpenCvSharp.Cv2.SolvePnPRansac(System.Collections.Generic.IEnumerable{OpenCvSharp.Point3f},System.Collections.Generic.IEnumerable{OpenCvSharp.Point2f},System.Double[0:,0:],System.Collections.Generic.IEnumerable{System.Double},System.Double[]@,System.Double[]@,System.Int32[]@,System.Boolean,System.Int32,System.Single,System.Double,OpenCvSharp.SolvePnPFlags)">
             <summary>
             computes the camera pose from a few 3D points and the corresponding projections. The outliers are possible.
             </summary>
@@ -1170,7 +1170,7 @@
             <param name="iterationsCount">Number of iterations.</param>
             <param name="reprojectionError">Inlier threshold value used by the RANSAC procedure. 
             The parameter value is the maximum allowed distance between the observed and computed point projections to consider it an inlier.</param>
-            <param name="minInliersCount">Number of inliers. If the algorithm at some stage finds more inliers than minInliersCount , it finishes.</param>
+            <param name="confidence">The probability that the algorithm produces a useful result.</param>
             <param name="inliers">Output vector that contains indices of inliers in objectPoints and imagePoints .</param>
             <param name="flags">Method for solving a PnP problem</param>
         </member>
@@ -3067,6 +3067,160 @@
             <param name="iterFactor">The scale factor that determines the number of random swap operations.</param>
             <param name="rng">The optional random number generator used for shuffling. 
             If it is null, theRng() is used instead.</param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.Write(OpenCvSharp.FileStorage,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.Write(OpenCvSharp.FileStorage,System.String,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.Write(OpenCvSharp.FileStorage,System.String,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.Write(OpenCvSharp.FileStorage,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.Write(OpenCvSharp.FileStorage,System.String,OpenCvSharp.Mat)">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.Write(OpenCvSharp.FileStorage,System.String,OpenCvSharp.SparseMat)">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.Write(OpenCvSharp.FileStorage,System.String,System.Collections.Generic.IEnumerable{OpenCvSharp.KeyPoint})">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.Write(OpenCvSharp.FileStorage,System.String,System.Collections.Generic.IEnumerable{OpenCvSharp.DMatch})">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.WriteScalar(OpenCvSharp.FileStorage,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.WriteScalar(OpenCvSharp.FileStorage,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.WriteScalar(OpenCvSharp.FileStorage,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.WriteScalar(OpenCvSharp.FileStorage,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fs"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.ReadInt(OpenCvSharp.FileNode,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.ReadFloat(OpenCvSharp.FileNode,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.ReadDouble(OpenCvSharp.FileNode,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.ReadString(OpenCvSharp.FileNode,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.ReadMat(OpenCvSharp.FileNode,OpenCvSharp.Mat)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <param name="defaultMat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.ReadSparseMat(OpenCvSharp.FileNode,OpenCvSharp.SparseMat)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <param name="defaultMat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.ReadKeyPoints(OpenCvSharp.FileNode)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.ReadDMatches(OpenCvSharp.FileNode)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
         </member>
         <member name="M:OpenCvSharp.Cv2.GetGaussianKernel(System.Int32,System.Double,System.Nullable{OpenCvSharp.MatType})">
             <summary>
@@ -5187,6 +5341,171 @@
             type one of the four neighborhoods as defined in the paper
             </summary>
         </member>
+        <member name="T:OpenCvSharp.BOWImgDescriptorExtractor">
+            <summary>
+            Brute-force descriptor matcher.
+            For each descriptor in the first set, this matcher finds the closest descriptor in the second set by trying each one.
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.BOWImgDescriptorExtractor.#ctor(OpenCvSharp.Feature2D,OpenCvSharp.DescriptorMatcher)">
+            <summary>
+            The constructor.
+            </summary>
+            <param name="dextractor">Descriptor extractor that is used to compute descriptors for an input image and its keypoints.</param>
+            <param name="dmatcher">Descriptor matcher that is used to find the nearest word of the trained vocabulary for each keypoint descriptor of the image.</param>
+        </member>
+        <member name="M:OpenCvSharp.BOWImgDescriptorExtractor.#ctor(OpenCvSharp.DescriptorMatcher)">
+            <summary>
+            The constructor.
+            </summary>
+            <param name="dmatcher">Descriptor matcher that is used to find the nearest word of the trained vocabulary for each keypoint descriptor of the image.</param>
+        </member>
+        <member name="M:OpenCvSharp.BOWImgDescriptorExtractor.Dispose(System.Boolean)">
+            <summary>
+            Releases the resources
+            </summary>
+            <param name="disposing">
+            If disposing equals true, the method has been called directly or indirectly by a user's code. Managed and unmanaged resources can be disposed.
+            If false, the method has been called by the runtime from inside the finalizer and you should not reference other objects. Only unmanaged resources can be disposed.
+            </param>
+        </member>
+        <member name="M:OpenCvSharp.BOWImgDescriptorExtractor.SetVocabulary(OpenCvSharp.Mat)">
+            <summary>
+            Sets a visual vocabulary.
+            </summary>
+            <param name="vocabulary">Vocabulary (can be trained using the inheritor of BOWTrainer ). 
+            Each row of the vocabulary is a visual word(cluster center).</param>
+        </member>
+        <member name="M:OpenCvSharp.BOWImgDescriptorExtractor.GetVocabulary">
+            <summary>
+            Returns the set vocabulary.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.BOWImgDescriptorExtractor.Compute(OpenCvSharp.InputArray,OpenCvSharp.KeyPoint[]@,OpenCvSharp.OutputArray,System.Int32[][]@,OpenCvSharp.Mat)">
+            <summary>
+            Computes an image descriptor using the set visual vocabulary.
+            </summary>
+            <param name="image">Image, for which the descriptor is computed.</param>
+            <param name="keypoints">Keypoints detected in the input image.</param>
+            <param name="imgDescriptor">Computed output image descriptor.</param>
+            <param name="pointIdxsOfClusters">pointIdxsOfClusters Indices of keypoints that belong to the cluster. 
+            This means that pointIdxsOfClusters[i] are keypoint indices that belong to the i -th cluster(word of vocabulary) returned if it is non-zero.</param>
+            <param name="descriptors">Descriptors of the image keypoints that are returned if they are non-zero.</param>
+        </member>
+        <member name="M:OpenCvSharp.BOWImgDescriptorExtractor.Compute(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,System.Int32[][]@)">
+            <summary>
+            Computes an image descriptor using the set visual vocabulary.
+            </summary>
+            <param name="keypointDescriptors">Computed descriptors to match with vocabulary.</param>
+            <param name="imgDescriptor">Computed output image descriptor.</param>
+            <param name="pointIdxsOfClusters">Indices of keypoints that belong to the cluster. 
+            This means that pointIdxsOfClusters[i] are keypoint indices that belong to the i -th cluster(word of vocabulary) returned if it is non-zero.</param>
+        </member>
+        <member name="M:OpenCvSharp.BOWImgDescriptorExtractor.Compute2(OpenCvSharp.Mat,OpenCvSharp.KeyPoint[]@,OpenCvSharp.Mat)">
+            <summary>
+            Computes an image descriptor using the set visual vocabulary.
+            </summary>
+            <param name="image">Image, for which the descriptor is computed.</param>
+            <param name="keypoints">Keypoints detected in the input image.</param>
+            <param name="imgDescriptor">Computed output image descriptor.</param>
+        </member>
+        <member name="M:OpenCvSharp.BOWImgDescriptorExtractor.DescriptorSize">
+            <summary>
+            Returns an image descriptor size if the vocabulary is set. Otherwise, it returns 0.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.BOWImgDescriptorExtractor.DescriptorType">
+            <summary>
+            Returns an image descriptor type.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:OpenCvSharp.BOWKMeansTrainer">
+            <summary>
+            Brute-force descriptor matcher.
+            For each descriptor in the first set, this matcher finds the closest descriptor in the second set by trying each one.
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.BOWKMeansTrainer.#ctor(System.Int32,System.Nullable{OpenCvSharp.TermCriteria},System.Int32,OpenCvSharp.KMeansFlags)">
+            <summary>
+            
+            </summary>
+            <param name="clusterCount"></param>
+            <param name="termcrit"></param>
+            <param name="attempts"></param>
+            <param name="flags"></param>
+        </member>
+        <member name="M:OpenCvSharp.BOWKMeansTrainer.Dispose(System.Boolean)">
+            <summary>
+            Releases the resources
+            </summary>
+            <param name="disposing">
+            If disposing equals true, the method has been called directly or indirectly by a user's code. Managed and unmanaged resources can be disposed.
+            If false, the method has been called by the runtime from inside the finalizer and you should not reference other objects. Only unmanaged resources can be disposed.
+            </param>
+        </member>
+        <member name="M:OpenCvSharp.BOWKMeansTrainer.Cluster">
+            <summary>
+            Clusters train descriptors.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.BOWKMeansTrainer.Cluster(OpenCvSharp.Mat)">
+            <summary>
+            Clusters train descriptors.
+            </summary>
+            <param name="descriptors">Descriptors to cluster. Each row of the descriptors matrix is a descriptor. Descriptors are not added to the inner train descriptor set.
+            The vocabulary consists of cluster centers. So, this method returns the vocabulary. In the first variant of the method, train descriptors stored in the object 
+            are clustered.In the second variant, input descriptors are clustered.</param>
+            <returns></returns>
+        </member>
+        <member name="T:OpenCvSharp.BOWTrainer">
+            <summary>
+            Brute-force descriptor matcher.
+            For each descriptor in the first set, this matcher finds the closest descriptor in the second set by trying each one.
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.BOWTrainer.Add(OpenCvSharp.Mat)">
+            <summary>
+            Adds descriptors to a training set.
+            </summary>
+            <param name="descriptors">descriptors Descriptors to add to a training set. Each row of the descriptors matrix is a descriptor.
+            The training set is clustered using clustermethod to construct the vocabulary.</param>
+        </member>
+        <member name="M:OpenCvSharp.BOWTrainer.GetDescriptors">
+            <summary>
+            Returns a training set of descriptors.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.BOWTrainer.DescriptorsCount">
+            <summary>
+            Returns the count of all descriptors stored in the training set.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.BOWTrainer.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.BOWTrainer.Cluster">
+            <summary>
+            Clusters train descriptors.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.BOWTrainer.Cluster(OpenCvSharp.Mat)">
+            <summary>
+            Clusters train descriptors.
+            </summary>
+            <param name="descriptors">Descriptors to cluster. Each row of the descriptors matrix is a descriptor. Descriptors are not added to the inner train descriptor set.
+            The vocabulary consists of cluster centers. So, this method returns the vocabulary. In the first variant of the method, train descriptors stored in the object 
+            are clustered.In the second variant, input descriptors are clustered.</param>
+            <returns></returns>
+        </member>
         <member name="T:OpenCvSharp.KeyPointsFilter">
             <summary>
             A class filters a vector of keypoints.
@@ -5727,6 +6046,19 @@
             </param>
         </member>
         <member name="M:OpenCvSharp.LineSegmentDetector.Detect(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray)">
+            <summary>
+            Finds lines in the input image.
+            This is the output of the default parameters of the algorithm on the above shown image.
+            </summary>
+            <param name="image">A grayscale (CV_8UC1) input image. </param>
+            <param name="lines">A vector of Vec4i or Vec4f elements specifying the beginning and ending point of a line. 
+            Where Vec4i/Vec4f is (x1, y1, x2, y2), point 1 is the start, point 2 - end. Returned lines are strictly oriented depending on the gradient.</param>
+            <param name="width">Vector of widths of the regions, where the lines are found. E.g. Width of line.</param>
+            <param name="prec">Vector of precisions with which the lines are found.</param>
+            <param name="nfa">Vector containing number of false alarms in the line region, 
+            with precision of 10%. The bigger the value, logarithmically better the detection.</param>
+        </member>
+        <member name="M:OpenCvSharp.LineSegmentDetector.Detect(OpenCvSharp.InputArray,OpenCvSharp.Vec4f[]@,System.Double[]@,System.Double[]@,System.Double[]@)">
             <summary>
             Finds lines in the input image.
             This is the output of the default parameters of the algorithm on the above shown image.
@@ -7782,6 +8114,22 @@
             Update-values upper limit Delta_{max}.
             It must be &gt;1. Default value is 50.
             </summary>
+        </member>
+        <member name="M:OpenCvSharp.ML.ANN_MLP.SetLayerSizes(OpenCvSharp.InputArray)">
+            <summary>
+            Integer vector specifying the number of neurons in each layer including the input and output layers.
+            The very first element specifies the number of elements in the input layer.
+            The last element - number of elements in the output layer.Default value is empty Mat.
+            </summary>
+            <param name="layerSizes"></param>
+        </member>
+        <member name="M:OpenCvSharp.ML.ANN_MLP.GetLayerSizes">
+            <summary>
+            Integer vector specifying the number of neurons in each layer including the input and output layers.
+            The very first element specifies the number of elements in the input layer.
+            The last element - number of elements in the output layer.
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:OpenCvSharp.ML.ANN_MLP.ActivationFunctions">
             <summary>
@@ -13021,6 +13369,86 @@
             <param name="fileName"></param>
             <returns></returns>
         </member>
+        <member name="M:OpenCvSharp.FileStorage.Write(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.Write(System.String,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.Write(System.String,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.Write(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.Write(System.String,OpenCvSharp.Mat)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.Write(System.String,OpenCvSharp.SparseMat)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.Write(System.String,System.Collections.Generic.IEnumerable{OpenCvSharp.KeyPoint})">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.Write(System.String,System.Collections.Generic.IEnumerable{OpenCvSharp.DMatch})">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.WriteScalar(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.WriteScalar(System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.WriteScalar(System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.FileStorage.WriteScalar(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
         <member name="T:OpenCvSharp.FileStorage.Mode">
             <summary>
             File storage mode
@@ -13118,6 +13546,13 @@
             <param name="node"></param>
             <returns></returns>
         </member>
+        <member name="M:OpenCvSharp.FileNode.op_Explicit(OpenCvSharp.FileNode)~OpenCvSharp.Mat">
+            <summary>
+            Returns the node content as OpenCV Mat
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
         <member name="P:OpenCvSharp.FileNode.Item(System.String)">
             <summary>
             returns element of a mapping node
@@ -13199,6 +13634,60 @@
         <member name="M:OpenCvSharp.FileNode.ReadObj">
             <summary>
             Reads the registered object and returns pointer to it
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.FileNode.ReadInt(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.FileNode.ReadFloat(System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.FileNode.ReadDouble(System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.FileNode.ReadString(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.FileNode.ReadMat(OpenCvSharp.Mat)">
+            <summary>
+            
+            </summary>
+            <param name="defaultMat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.FileNode.ReadSparseMat(OpenCvSharp.SparseMat)">
+            <summary>
+            
+            </summary>
+            <param name="defaultMat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.FileNode.ReadKeyPoints">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.FileNode.ReadDMatches">
+            <summary>
+            
             </summary>
             <returns></returns>
         </member>
@@ -28474,6 +28963,57 @@
             </summary>
         </member>
         <member name="M:OpenCvSharp.VectorOfVectorDouble.ToArray">
+            <summary>
+            Converts std::vector to managed array
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:OpenCvSharp.VectorOfVectorInt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.VectorOfVectorInt.disposed">
+            <summary>
+            Track whether Dispose has been called
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.VectorOfVectorInt.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.VectorOfVectorInt.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="size"></param>
+        </member>
+        <member name="M:OpenCvSharp.VectorOfVectorInt.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">
+            If disposing equals true, the method has been called directly or indirectly by a user's code. Managed and unmanaged resources can be disposed.
+            If false, the method has been called by the runtime from inside the finalizer and you should not reference other objects. Only unmanaged resources can be disposed.
+            </param>
+        </member>
+        <member name="P:OpenCvSharp.VectorOfVectorInt.Size1">
+            <summary>
+            vector.size()
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.VectorOfVectorInt.Size2">
+            <summary>
+            vector[i].size()
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.VectorOfVectorInt.ElemPtr">
+            <summary>
+            &amp;vector[0]
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.VectorOfVectorInt.ToArray">
             <summary>
             Converts std::vector to managed array
             </summary>

@@ -228,13 +228,6 @@
             Static class which provides conversion between System.Windows.Media.Imaging.BitmapSource and IplImage
             </summary>
         </member>
-        <member name="M:OpenCvSharp.Extensions.BitmapSourceConverter.DeleteObject(System.IntPtr)">
-            <summary>
-            Delete a GDI object
-            </summary>
-            <param name="hObject">The poniter to the GDI object to be deleted</param>
-            <returns></returns>
-        </member>
         <member name="M:OpenCvSharp.Extensions.BitmapSourceConverter.ToBitmapSource(OpenCvSharp.Mat)">
             <summary>
             Converts Mat to BitmapSource.
@@ -258,6 +251,7 @@
             Converts System.Drawing.Bitmap to BitmapSource.
             </summary>
             <param name="src">Input System.Drawing.Bitmap</param>
+            <remarks>http://www.codeproject.com/Articles/104929/Bitmap-to-BitmapSource</remarks>
             <returns>BitmapSource</returns>
         </member>
         <member name="M:OpenCvSharp.Extensions.BitmapSourceConverter.ToMat(System.Windows.Media.Imaging.BitmapSource)">

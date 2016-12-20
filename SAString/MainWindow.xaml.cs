@@ -81,6 +81,9 @@ namespace SAString
                 }
                 File.WriteAllText("out/lines.csv", finalSB.ToString());
             }
+
+            Build3dm.Write3dm(Segments, "result.3dm");
+
             foreach(ZPoint z in ExtendedPoints)
             {
                 Cv2.Circle(zadd, new OpenCvSharp.Point(z.x, z.y), 2, new Scalar(255, 0, 0), 10);

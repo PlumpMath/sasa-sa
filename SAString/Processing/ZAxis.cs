@@ -15,6 +15,7 @@ namespace SAString.Processing
             List<ZPoint> Result = new List<ZPoint>();
             List<List<Point>> GroupedPoints = new List<List<Point>>();
             List<Point> ClusteredPoints = new List<Point>();
+            RectArea PointArea = new RectArea();
             foreach(RectSegment rs in Segments)
             {
                 Points.Add(rs.p1);
@@ -57,6 +58,7 @@ namespace SAString.Processing
                 AddedPoints.X /= pl.Count;
                 AddedPoints.Y /= pl.Count;
                 ClusteredPoints.Add(AddedPoints);
+                PointArea.AddComparison(AddedPoints);
             }
             // 여기에 Z축을 추가하는 소스를 만들어 넣으세요.
             // Points 안에 들어가있는 점들에 대해서 Z값을 추가하면 됨.
@@ -66,6 +68,7 @@ namespace SAString.Processing
             // List<Point> Points : 교점들의 리스트 (Point)
 
             //Find Intersections
+            ModelHeight = ((PointArea.p2.X + PointArea.p2.Y - PointArea.p1.X - PointArea.p1.Y) / 2);
             List<RectLine> SegToLine = new List<RectLine>();
             foreach (RectSegment seg in Segments)
                 SegToLine.Add(seg.ToLine());
