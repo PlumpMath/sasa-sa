@@ -71,6 +71,7 @@ namespace SAString.Processing
                 SegToLine.Add(seg.ToLine());
             foreach(Point point in ClusteredPoints)
             {
+                List<int> IncludedLines = new List<int>();
                 int Count = 0; double ZSum = 0;
                 for(int i=0;i<SegToLine.Count;i++)
                 {
@@ -79,13 +80,11 @@ namespace SAString.Processing
                     {
                         Count++;
                         double val = CalcZ(Segments[i].p1, Segments[i].p2, point);
-                        if (Double.IsNaN(val))
-                            Console.Write("asdf");
                         ZSum += val;
+                        IncludedLines.Add(i);
                     }
                 }
-
-                Result.Add(new ZPoint(point.X, point.Y,ZSum / Count));
+                Result.Add(new ZPoint(point.X, point.Y, ZSum / Count, Result.Count, IncludedLines));
             }
             return Result;
         }

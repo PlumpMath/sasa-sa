@@ -70,6 +70,17 @@ namespace SAString
 
             List<ZPoint> ExtendedPoints = ZAxis.CalcZPoints(segments, points);
 
+            var Segments = MakeSegments.Make(ExtendedPoints, segments.Count);
+            if (Settings.SaveAsCSV)
+            {
+                StringBuilder finalSB = new StringBuilder();
+                finalSB.Append("1_ID, 1_x, 1_y, 1_z, 2_ID, 2_x, 2_y, 2_z\n");
+                foreach (ZSegment asdf in Segments)
+                {
+                    finalSB.Append(String.Format("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}\n", asdf.p1.ID, asdf.p1.x, asdf.p1.y, asdf.p1.z, asdf.p2.ID, asdf.p2.x, asdf.p2.y, asdf.p2.z, asdf.ParentLine));
+                }
+                File.WriteAllText("out/lines.csv", finalSB.ToString());
+            }
             foreach(ZPoint z in ExtendedPoints)
             {
                 Cv2.Circle(zadd, new OpenCvSharp.Point(z.x, z.y), 2, new Scalar(255, 0, 0), 10);
